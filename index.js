@@ -24,5 +24,14 @@ app.post('/personagem',(req,res)=>{
     res.send('Item adicionado com sucesso: ' + novoItem)
 })
 
+//endpoint update put
+app.put('/personagem/:id', (req,res)=>{
+    const id = req.params.id - 1
+    const body = req.body
+    lista[id] = body.nome
+    res.send('Item atualizado com sucesso')
+
+})
+
 
 app.listen(3000, ()=>console.log('servidor online'))
