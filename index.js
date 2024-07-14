@@ -21,15 +21,15 @@ app.post('/personagem',(req,res)=>{
     const body = req.body
     const novoItem = body.nome
     if(!novoItem){
-        return res.send('Corpo da requisição inválido')
+        return res.status(400).send('Corpo da requisição inválido')
     }
 
     if(lista.includes(novoItem)){
-        return res.send('Item já existe na lista')
+        return res.status(409).send('Item já existe na lista')
     }
     
     lista.push(novoItem)
-    res.send('Item adicionado com sucesso: ' + novoItem)
+    res.status(201).send('Item adicionado com sucesso: ' + novoItem)
 })
 
 //endpoint update put
