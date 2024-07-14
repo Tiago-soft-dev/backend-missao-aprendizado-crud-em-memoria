@@ -20,6 +20,14 @@ app.get('/personagem/:id', (req,res)=>{
 app.post('/personagem',(req,res)=>{
     const body = req.body
     const novoItem = body.nome
+    if(!novoItem){
+        return res.send('Corpo da requisição inválido')
+    }
+
+    if(lista.includes(novoItem)){
+        return res.send('Item já existe na lista')
+    }
+    
     lista.push(novoItem)
     res.send('Item adicionado com sucesso: ' + novoItem)
 })
