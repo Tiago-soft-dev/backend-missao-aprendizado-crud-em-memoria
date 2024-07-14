@@ -13,7 +13,11 @@ app.get('/personagem', (req,res)=>{
 //endpoint read by id get
 app.get('/personagem/:id', (req,res)=>{
     let id = req.params.id
-    res.send(lista[id - 1]);
+    const item = lista[id - 1]
+    if(!item){
+        return res.status(404).send('Item não encontrado.')
+    }
+    res.send(item);
 })
 
 //endpoint create post
