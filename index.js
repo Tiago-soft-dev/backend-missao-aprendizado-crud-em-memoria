@@ -33,5 +33,12 @@ app.put('/personagem/:id', (req,res)=>{
 
 })
 
+//endpoint delete
+app.delete('/personagem/:id', (req,res)=>{
+    const id = req.params.id - 1
+    delete lista[id]
+    res.send('Item deletado com sucesso! ')
+})
+
 
 app.listen(3000, ()=>console.log('servidor online'))
