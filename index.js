@@ -10,6 +10,12 @@ app.get('/personagem', (req,res)=>{
     res.send(lista)
 })
 
+//endpoint /personagem/count
+app.get('/personagem/count', (req,res)=>{
+    const totalItens = lista.length
+    res.send(`Número total de itens: ${totalItens}`)
+})
+
 //endpoint read by id get
 app.get('/personagem/:id', (req,res)=>{
     let id = req.params.id
@@ -51,6 +57,8 @@ app.delete('/personagem/:id', (req,res)=>{
     delete lista[id]
     res.send('Item deletado com sucesso! ')
 })
+
+
 
 
 app.listen(3000, ()=>console.log('servidor online'))
